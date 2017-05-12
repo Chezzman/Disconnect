@@ -16,6 +16,10 @@
     <script src="/node_modules/angular-ui-router/release/angular-ui-router.min.js" charset="utf-8"></script>
     <script src="/node_modules/firebase/firebase.js" charset="utf-8"></script>
     <script src="/node_modules/angularfire/dist/angularfire.min.js" charset="utf-8"></script>
+
+    <script src="/js/app.js" charset="utf-8"></script>
+    <script src="/js/factories/auth.factory.js" charset="utf-8"></script>
+    <script src="/js/controllers/auth.controller.js" charset="utf-8"></script>
     <!-- {% block css %}{% endblock %} -->
   </head>
 
@@ -24,19 +28,23 @@
   <body>
     <div id="Whole_page">
 
-    
+
       <nav>
         <ul>
           <li><a ui-sref="home">Home</a></li>
           <li><a ui-sref="apps">Apps</a></li>
           <li><a ui-sref="contact">Contact</a></li>
-          <div ng-if="!auth.user">
-            <li><a ui-sref="logup">Login/SignUp</a></li>
-          </div>
           <div ng-if="auth.user">
             <li><a href="#">Profile</a></li>
             <li><a ng-click="auth.signOut()">Logout</a></li>
           </div>
+        </ul>
+      </nav>
+
+      <nav ng-if="!auth.user">
+        <ul>
+          <li><a ui-sref="login">Login</a></li>
+          <li><a ui-sref="signup">Sign Up</a></li>
         </ul>
       </nav>
 
@@ -45,54 +53,8 @@
     </div>
 
 
+    <div class="" ui-view>
 
-
-      <!-- {% include 'header.html' %} -->
-
-
-    <div class="site-content">
-      <div class="container">
-
-        <!-- messages -->
-        <!-- {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-        <br>
-        <div class="row">
-          <div class="col-md-12">
-            {% for category, message in messages %}
-            <div class="alert alert-{{ category }}">
-              <a class="close" title="Close" href="#" data-dismiss="alert">&times;</a>
-             {{message}}
-            </div>
-            {% endfor %}
-          </div>
-        </div>
-        {% endif %}
-        {% endwith %} -->
-
-
-        <!-- child template -->
-        <!-- {% block content %}{% endblock %}
-        <br> -->
-
-
-        <!-- errors -->
-        <!-- {% if error %}
-          <p class="error"><strong>Error:</strong> {{ error }}</p>
-        {% endif %} -->
-
-      </div>
     </div>
-
-    <br><br>
-
-    <!-- {% include 'footer.html' %} -->
-
-    <!-- scripts -->
-    <!-- <script src="//code.jquery.com/jquery-1.11.2.min.js" type="text/javascript"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="{{url_for('static', filename='main.js')}}" type="text/javascript"></script> -->
-    <!-- {% block js %}{% endblock %} -->
-</div>
   </body>
 </html>

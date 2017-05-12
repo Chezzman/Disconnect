@@ -1,4 +1,4 @@
-@imprt "compass/css3";
+@import "compass/css3";
 
 html, body{
     margin:0px;
@@ -24,5 +24,12 @@ header{
     padding: 0px 50px;
     height:60px;
     text-align: center;
+  }
+}
+nav{
+  li{
+    list-style-type: none;
+    display: inline-block;
+    
   }
 }

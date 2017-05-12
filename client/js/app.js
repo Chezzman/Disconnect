@@ -12,14 +12,14 @@ function MainRouter($stateProvider, $urlRouterProvider){
       url: '/contact',
       templateUrl: '/states/contact.html'
     })
-    .state('logup', {
-      url: '/logup',
-      templateUrl: 'states/logup.html'
+    .state('login', {
+      url: '/login',
+      templateUrl: 'states/login.html'
     })
-    // .state('signup', {
-    //   url: '/signup',
-    //   templateUrl: 'states/signup.html'
-    // })
+    .state('signup', {
+      url: '/signup',
+      templateUrl: 'states/signup.html'
+    })
     .state('rofile', {
       url: '/profile',
       templateUrl: '/states/profile.html',
