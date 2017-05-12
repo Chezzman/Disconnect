@@ -12,9 +12,10 @@
 
     <link href="styles/scss/main.scss" rel="stylesheet">
     <!-- JS -->
-    <script src="node_modules/browser/browser.js" charset="utf-8"></script>
-    <script src="node_modules/react/dist/react.min.js" charset="utf-8"></script>
-    <script src="node_modules/react-dom/dist/react-dom.min.js" charset="utf-8"></script>
+    <script src="/node_modules/angular/angular.min.js" charset="utf-8"></script>
+    <script src="/node_modules/angular-ui-router/release/angular-ui-router.min.js" charset="utf-8"></script>
+    <script src="/node_modules/firebase/firebase.js" charset="utf-8"></script>
+    <script src="/node_modules/angularfire/dist/angularfire.min.js" charset="utf-8"></script>
     <!-- {% block css %}{% endblock %} -->
   </head>
 
@@ -23,11 +24,28 @@
   <body>
     <div id="Whole_page">
 
+    
       <nav>
         <ul>
-          <li><a href="#"></a></li>
+          <li><a ui-sref="home">Home</a></li>
+          <li><a ui-sref="apps">Apps</a></li>
+          <li><a ui-sref="contact">Contact</a></li>
+          <div ng-if="!auth.user">
+            <li><a ui-sref="logup">Login/SignUp</a></li>
+          </div>
+          <div ng-if="auth.user">
+            <li><a href="#">Profile</a></li>
+            <li><a ng-click="auth.signOut()">Logout</a></li>
+          </div>
         </ul>
       </nav>
+
+    <div class="banner1 ">
+      <img src="/images/disconnect title.png" alt="">
+    </div>
+
+
+
 
       <!-- {% include 'header.html' %} -->
 
