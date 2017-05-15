@@ -25,7 +25,7 @@
 
 
 
-  <body>
+  <body ng-contoller="AuthController as auth">
     <div id="Whole_page">
 
 
@@ -35,7 +35,7 @@
           <li><a ui-sref="apps">Apps</a></li>
           <li><a ui-sref="contact">Contact</a></li>
           <div ng-if="auth.user">
-            <li><a href="#">Profile</a></li>
+            <li><a ui-sref="profile">Profile</a></li>
             <li><a ng-click="auth.signOut()">Logout</a></li>
           </div>
         </ul>

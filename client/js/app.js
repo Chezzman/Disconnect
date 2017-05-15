@@ -20,7 +20,7 @@ function MainRouter($stateProvider, $urlRouterProvider){
       url: '/signup',
       templateUrl: 'states/signup.html'
     })
-    .state('rofile', {
+    .state('profile', {
       url: '/profile',
       templateUrl: '/states/profile.html',
       resolve: {

@@ -1,16 +1,23 @@
-<form class="" action="index.html" method="post">
+<section ng-if="!auth.user">
   <div class="">
     <h1>Sign Up Today!</h1>
   </div>
   <div class="">
-    <input type="text" name="" value="email">
+    <input type="text" ng-model="auth.email" placeholder="Email">
   </div>
   <div class="">
-    <input type="text" name="" value="password">
+    <input type="text" ng-model="auth.password" placeholder="password">
   </div>
   <div class="">
-    <button type="button" name="button">Sign Up</button>
+    <button type="button" ng-click="auth.createUser()" name="button">Sign Up</button>
   </div>
   <!-- other -->
+  <p ng-if="auth.error" >Error: {{ auth.error }}</p>
+</section>
 
-</form>
+<section ng-if="auth.user">
+  <div class="">
+    <h3>You are already logged in {{ auth.user }}</h3>
+    <a iu-sref="profile"></a>
+  </div>
+</section>
